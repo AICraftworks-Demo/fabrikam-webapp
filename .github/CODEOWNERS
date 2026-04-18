@@ -1,0 +1,31 @@
+# AgentCraftworks CODEOWNERS — Fabrikam Web App
+# Multi-agent scale demo: 5 specialized agents sharing governance bandwidth.
+# Rate Governor priority: frontend=P1, auth=P0, tests=P2, docs=P2
+
+# Frontend components → UI review agent (P1 priority)
+src/components/           @AgentCraftworks/ui-review-agent
+src/pages/                @AgentCraftworks/ui-review-agent
+src/styles/               @AgentCraftworks/ui-review-agent
+
+# Authentication → security agent (P0 — highest priority)
+src/auth/                 @AgentCraftworks/security-review-agent
+src/api/auth/             @AgentCraftworks/security-review-agent
+
+# Backend API routes → backend review agent (P1)
+src/api/                  @AgentCraftworks/backend-review-agent
+
+# Tests → test coverage agent (P2 — background priority)
+tests/                    @AgentCraftworks/test-coverage-agent
+**/*.test.tsx              @AgentCraftworks/test-coverage-agent
+**/*.test.ts               @AgentCraftworks/test-coverage-agent
+
+# Documentation → docs agent (P2)
+docs/                     @AgentCraftworks/docs-agent
+*.md                      @AgentCraftworks/docs-agent
+
+# Infrastructure — T5 gated, human approval required
+infra/                    @AgentCraftworks/security-review-agent @fabrikam-platform-team
+.github/workflows/        @AgentCraftworks/security-review-agent @fabrikam-platform-team
+
+# Default
+*                         @AgentCraftworks/code-review-agent
